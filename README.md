@@ -1,41 +1,32 @@
-# AmxModX Plugin Repo Template
+# [VipM-I] MWallet
 
-Template AmxModX plugin package for building on Windows.
+Расширение для контроллера предметов, добавляющее предметы, связанные с [ModularWallet](https://github.com/ArKaNeMaN/amxx-ModularWallet).
 
-## `.build-config`
+## `MWallet-Buy`
 
-Config for building script `build.bat`.
+Покупка предмета(ов) за указанное количество указанной валюты.
 
-```ini
-; Name of output .zip file
-PACKAGE_NAME=Unnemad
+### Параметры
 
-; Path from project root to amxmodx folder
-PACKAGE_AMXMODX_FOLDER=amxmodx
+| Параметр   | Тип     | Обязательный | Описание
+| :---       | :---    |    :---:     | :---
+| `Currency` | Строка  |      +       | Название валюты, зарегистрированной в ModularWallet.
+| `Cost`     | Ц.Число |      +       | Стоимость.
+| `Items`    | Массив  |      +       | Список предметов, которые будут выданы при успешной оплате.
 
-; Should add README.md file to .zip
-PACKAGE_README_USE=0
+### Пример
 
-; Should add compiled plugins (.amxx files) to .zip
-PACKAGE_COMPILED_PLUGINS_USE=1
-; Should save compiled plugins in project file after build
-PACKAGE_COMPILED_PLUGINS_SAVE=1
-
-; Should generate plugins-*.ini file and add it to .zip
-PACKAGE_PLUINGS_LIST_USE=0
-; Should postfix of plugins-*.ini file (pastes instead *)
-PACKAGE_PLUINGS_LIST_POSTFIX=unnamed
-; Should save plugins-*.ini file in project file after build
-PACKAGE_PLUINGS_LIST_SAVE=0
-
-; Should add assets to .zip file
-PACKAGE_ASSETS_USE=0
-; Path from project root to folder with assets files
-PACKAGE_ASSETS_FOLDER=assets
+```jsonc
+{
+    "Type": "MWallet-Buy",
+    "Currency": "GameMoney",
+    "Cost": 5000,
+    "Items": {
+        "Type": "HealthNade",
+        "ThrowHealingAmount": 100,
+        "DrinkHealingAmount": 100
+    }
+}
 ```
 
-## Building
-
-For building you must install AmxModX compiler by [AmxxCompilerInstaller](https://github.com/ArKaNeMaN/batch-AmxxCompilerInstaller).
-
-Also, may be required download depended .inc files.
+_Покупка ультимативной [лечащей гранаты](https://github.com/ArKaNeMaN/VipM-I-HealthNade) за $5000_
