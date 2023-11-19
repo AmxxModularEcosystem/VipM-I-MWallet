@@ -12,7 +12,7 @@ public stock const PluginURL[] = "t.me/arkaneman";
 
 new const BUY_TYPE_NAME[] = "MWallet-Buy";
 
-public VipM_OnInitModules() {
+public VipM_IC_OnInitTypes() {
     register_plugin(PluginName, PluginVersion, PluginAuthor);
     MWallet_Init();
 
